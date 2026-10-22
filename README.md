@@ -1,23 +1,34 @@
-**Rise to Stardom**
+# Rise to Stardom — Opening scene
 
-A simulation game about the climb from obscurity to celebrity.
+A single playable scene using the supplied `cafe.png`, `ogchar.png`, `arden.png`, and `mina.png` artwork. Character images retain their original aspect ratios and transparency. The café street sits behind the player and Arden; Mina appears when the café side door is clicked.
 
-Overview
+## Run
 
-Rise to Stardom is a level-based life simulation where you start with nothing (no fans, no connections, no reputation) and build your way up to fame. Every decision shapes your career: which gigs to take, who to network with, how to manage your image, and when to take risks.
+Requires Node.js 20+. No dependencies to install.
 
-Features
-Level-based progression: advance through career stages, from street-level unknown to household name
-Fame and reputation system: build your following, protect your public image, and handle scandals
-Meaningful choices: opportunities, rivalries, and setbacks that change how your story unfolds
-Resource management: balance energy, money, relationships, and popularity
-Multiple paths to fame: pick your route, such as music, acting, social media, or sports
-How to Play
-Create your character
-Take on opportunities to earn fans, money, and connections
-Level up by hitting fame milestones
-Manage setbacks and keep your reputation intact
-Reach the top and become a legend
-Status
+```sh
+npm start
+```
 
-🚧 In development
+Open http://localhost:5173. Progress saves locally in this browser. Install / Add to Home Screen is available through supporting browsers. The app caches its code and artwork for offline use after an initial successful visit.
+
+## Play
+
+- Continue through the opening conversation with Arden.
+- Choose one of three responses; each gets its own reply.
+- Click the highlighted café door (or the accessible Knock button) to ask Mina for help.
+- Continue through Mina’s dialogue to finish this scene.
+- Dialogue history, optional knock sound, and replay are available.
+
+Clicking the door early also advances to Mina’s conversation. No timing or failure conditions apply. This scene has its own local save and preserves the earlier chapter prototype’s save.
+
+## Files
+
+- `src/opening.js`: single-scene dialogue, choices, door interaction and local save
+- `src/opening.css`: scene composition and responsive interface
+- `public/assets/`: supplied artwork, copied without modification
+- `public/sw.js`: offline cache
+
+The earlier full-chapter implementation remains in `src/app.js`, `src/game.js`, and `src/style.css`, but the app now opens only this scene. `npm test` runs the earlier chapter state tests; those tests do not cover the new visual scene. The new scene is verified through a browser playthrough.
+
+Saves are device-local. No backend, account sync, telemetry, or native app-store package is included.
